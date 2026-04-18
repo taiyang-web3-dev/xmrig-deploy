@@ -49,7 +49,7 @@ echo "[4/4] Setting up auto-update cron job..."
 
 # 启动挖矿
 echo "Starting miner..."
-~/miner-config/scripts/start.sh
+~/miner-config/scripts/auto_config.sh
 
 echo "========================================="
 echo "Installation complete!"
