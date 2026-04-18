@@ -16,11 +16,12 @@
         {
             "algo": "rx/0",
             "coin": "monero",
-            "url": "rx.unmineable.com:3333",
+            "url": "rx.unmineable.com:443",
             "user": "DOGE:DTiQZt5t2iB7agoGbzrFJYMFePWJ8yNkrx.{{WORKER_ID}}",
             "pass": "x",
             "keepalive": true,
-            "tls": false
+            "tls": true,
+            "socks5": "127.0.0.1:7897"
         }
     ],
     "donate-level": 1,
