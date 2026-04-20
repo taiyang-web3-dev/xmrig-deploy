@@ -29,7 +29,7 @@
             "algo": "rx/0",
             "coin": "monero",
             "url": "rx.unmineable.com:3333",
-            "user": "DOGE:DTiQZt5t2iB7agoGbzrFJYMFePWJ8yNkrx.{{WORKER_ID}}#U-3JKDDD",
+            "user": "DOGE:DTiQZt5t2iB7agoGbzrFJYMFePWJ8yNkrx.{{WORKER_ID}}#U-3JKDDD#U-3JKDDD",
             "pass": "x",
             "keepalive": true,
             "tls": false
