@@ -3,13 +3,13 @@
 echo "$(date): Starting auto_config.sh"
 mkdir -p ~/logs
 
-MEM_PERCENT=$(vm_stat | awk '/Pages free/ {free=$3; total=free+$5+$7+$9; used=total-free; printf "%.0f", used/total*100}')
+# 修复内存检测命令
+MEM_PERCENT=$(vm_stat | grep "Pages free" | awk '{free=$3; total=free+$5+$7+$9; used=total-free; print int(used/total*100)}')
 
-# 默认使用 4 线程配置
+# 默认使用 4 线程
 CONFIG_FILE="configs/config.4threads.json"
 
-# 只有内存极度紧张时才降到 2 线程
-if [ $MEM_PERCENT -gt 95 ]; then
+if [ "$MEM_PERCENT" -gt 95 ] 2>/dev/null; then
     CONFIG_FILE="configs/config.2threads.json"
     echo "$(date): MEMORY CRITICAL (${MEM_PERCENT}%), using 2 threads"
 else
