@@ -1,9 +1,20 @@
 #!/bin/bash
+
 echo "$(date): Starting auto_config.sh"
 mkdir -p ~/logs
 
-# 强制使用 2 线程配置
-CONFIG_FILE="configs/config.2threads.json"
+MEM_PERCENT=$(vm_stat | awk '/Pages free/ {free=$3; total=free+$5+$7+$9; used=total-free; printf "%.0f", used/total*100}')
+
+# 默认使用 4 线程配置
+CONFIG_FILE="configs/config.4threads.json"
+
+# 只有内存极度紧张时才降到 2 线程
+if [ $MEM_PERCENT -gt 95 ]; then
+    CONFIG_FILE="configs/config.2threads.json"
+    echo "$(date): MEMORY CRITICAL (${MEM_PERCENT}%), using 2 threads"
+else
+    echo "$(date): Memory OK (${MEM_PERCENT}%), using 4 threads"
+fi
 
 WORKER_ID=$(/usr/sbin/scutil --get LocalHostName | sed 's/ /_/g' | sed 's/-/_/g')
 cd ~/miner-config
